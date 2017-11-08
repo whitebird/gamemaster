@@ -14,7 +14,8 @@ let users = [];
 let sockets = {};
 
 app.use(compression({}));
-app.use(express['static'](__dirname + '/../client'));
+// app.use(express['static'](__dirname + '/../client'));
+app.use('/client', express.static(__dirname + '/../client'))
 
 io.on('connection', (socket) => {
     let nick = socket.handshake.query.nick;
